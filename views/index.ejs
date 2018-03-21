@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/swiper.css">
+    <link rel="stylesheet" href="/css/items.css">
+    <link rel="stylesheet" href="/css/lunbo.css">
+  </head>
+  <body class="msite">
+  <%- include('header') %>
+  <%- include('lunbo') %>
+  <%- include('items') %>
+  <%- include('items') %>
+
+
+
+  <script type="text/javascript" src="/lib/jquery.1.10.2.js"></script>
+  <script type="text/javascript" src="/lib/swiper.js"></script>
+
+  <script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      preventClicks:false,
+      pagination: {
+        el: '.swiper-pagination'
+      }
+    })
+    var $top = $('.top').height()
+    console.log("111",$top)
+    $(window).scroll(function () {
+      var $scrollTop = $(window).scrollTop()
+      console.log("222",$scrollTop)
+      if($scrollTop > $top){
+        $('.top').addClass('showhead')
+      }else{
+        $('.top').removeClass('showhead')
+      }
+    })
+  </script>
+
+  </body>
+</html>
